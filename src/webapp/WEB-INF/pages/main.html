@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Car Store</title>
+</head>
+<body>
+<h1>
+    <table align="center" border="1">
+        <caption>Cars list</caption>
+        <colgroup>
+            <col span="1" style="background:Khaki">
+            <!-- С помощью этой конструкции задаем цвет фона для первых двух столбцов таблицы-->
+            <col span="2" style="background-color:LightCyan">
+            <!-- Задаем цвет фона для следующего (одного) столбца таблицы-->
+        </colgroup>
+        <thead>
+        <tr>
+            <th> Brand</th>
+            <th> Model</th>
+            <th> Color</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${cars.empty}">
+            <td colspan="2"> No Cars Available</td>
+        </tr>
+        <tr th:each="car : ${cars}">
+            <td><span th:text="${car.getBrand()}"> Brand </span></td>
+            <td><span th:text="${car.getModel()}"> Model </span></td>
+            <td><span th:text="${car.getColor()}"> Color </span></td>
+        </tr>
+        </tbody>
+    </table>
+</h1>
+<div>
+
+</div>
+</body>
+</html>
